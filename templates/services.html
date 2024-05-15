@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #666;
+        }
+
+        .displaypost {
+            background-color: #fff;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, box-shadow 0.3s;
+            list-style-type: none;
+        }
+
+        .displaypost:hover {
+            background-color: #f9f9f9;
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .displaypost p {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        .displaypost img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .displaypost li:first-child {
+            font-weight: bold;
+            font-size: 1.3em;
+            color: #4CAF50;
+        }
+     
+    </style>
+</head>
+<body>
+    <div class="container">
+
+    <ul>
+        {% for post in posts %}
+        <div class="displaypost">
+        <h3>{{ post.title | upper }}</h3>
+        <p style="color: green">Posted by {{ post.author | upper }}</p>
+        <p>{{ post.description  | capfirst }}</p>
+        <img src="{{ post.image.url }}"  width="500px"/>
+        </div>
+        {% endfor %}
+    </ul>
+
+    </div>
+</body>
+</html>
+{% endblock %}

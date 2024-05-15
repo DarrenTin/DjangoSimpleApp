@@ -1,0 +1,37 @@
+<style>
+header {
+    background-color: #e1ff00; /* Green background */
+    padding: 10px;
+    text-align: center;
+}
+
+header a {
+    color: black; /* White text color */
+    text-decoration: none; /* Remove underline */
+    padding: 10px 20px; /* Add padding */
+    margin: 0 10px; /* Add margin between links */
+    border-radius: 5px; /* Add rounded corners */
+    transition: background-color 0.7s, transform 1.0s;/* Smooth transition */
+}
+
+header a:hover {
+    background-color: #989800; /* Darker green on hover */
+}
+
+header a:first-child {
+    margin-left: 0; /* Remove left margin for the first link */
+}
+</style>
+
+<header>
+    <a href="{% url 'home' %}">Home</a>
+    <a href="{% url 'about' %}">About</a>
+    <a href="{% url 'post' %}">New Post</a>
+    <a href="{% url 'services' %}">Services</a>
+    <a href="{% url 'home' %}">Portfolio</a>
+    <a href="admin">Login</a>
+    <a href="admin">Sign up</a>
+</header>
+{% block content %}
+<!-- child -->
+{% endblock %}
